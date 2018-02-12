@@ -1,7 +1,7 @@
 public class TextConverter {
-    public static String defaultText = "Lorem Ipsum is simply dummy text of the printing";
-            /*+ " and typesetting industry. Lorem Ipsum has been the industry's standard "
-            + "dummy text ever since the 1500s, when an unknown printer took a galley of "
+    public static String defaultText = "Lorem Ipsum is simply dummy text of the printing"
+            + " and typesetting industry. Lorem Ipsum has been the industry's standard ";
+            /*+ "dummy text ever since the 1500s, when an unknown printer took a galley of "
             + "type and scrambled it to make a type specimen book. It has survived not only five centuries, "
             + "but also the leap into electronic typesetting, remaining essentially unchanged. "
             + "It was popularised in the 1960s with the release of Letraset sheets containing "
@@ -11,24 +11,28 @@ public class TextConverter {
 
     static String textLine = "";
     int maxLineLength = 21;
+    int lineCount = 0;
+    //int j = 0;
+    public int i;
 
-    public void getFinalText(String s) {
-
-        for (int i = 0; i < 4; i++) {
+    public void getFinalText(String defaultText) {
+        if(lineCount < 4) {
 
             if (textLine.length() < maxLineLength) {
-                s = defaultText;
-                int indexOfSpace = s.indexOf(" ");
-                textLine = textLine + " " + s.substring(0, indexOfSpace);
-                defaultText = s.substring(indexOfSpace+1);
-                System.out.println(textLine);
-                System.out.println(textLine.length());
-                System.out.println(defaultText);
+                for (i = 0; i < 4; i++) {
+                    int indexOfSpace = defaultText.indexOf(" ");
+                    textLine = textLine + " " + defaultText.substring(0, indexOfSpace);
+                    defaultText = defaultText.substring(indexOfSpace + 1);
 
-            }else {
-                System.out.println("*-*-*-*-*-*-*-*-*-*");
-            }
-
+                    //System.out.println(textLine.length());
+                    //System.out.println(defaultText);
+                }
+                String newLine = System.getProperty("line.separator");
+                //System.out.println(textLine + newLine);
+                System.out.println(textLine + newLine + "^^^^^^^^^");
+            }lineCount++;
+        }else {
+           System.out.println("*-*-*-*-*-*-*-*-*-*");
         }
 
     }

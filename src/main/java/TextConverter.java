@@ -20,15 +20,15 @@ public class TextConverter {
                 s = defaultText;
                 int indexOfSpace = s.indexOf(" ");
                 textLine = textLine + " " + s.substring(0, indexOfSpace);
-                defaultText = s.substring(indexOfSpace);
+                defaultText = s.substring(indexOfSpace+1);
+                System.out.println(textLine);
+                System.out.println(textLine.length());
                 System.out.println(defaultText);
 
-            } else {
+            }else {
                 System.out.println("*-*-*-*-*-*-*-*-*-*");
             }
-            /*System.out.println(textLine);
-            System.out.println(s);
-            System.out.println(textLine.length());*/
+
         }
 
     }

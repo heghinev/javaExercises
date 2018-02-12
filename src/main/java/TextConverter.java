@@ -9,29 +9,31 @@ public class TextConverter {
             + "Aldus PageMaker including versions of Lorem Ipsum.";*/
 
 
-int i = 0;
-String finalText = "";
-int maxFinalTextLength = 21;
+    static String textLine = "";
+    int maxLineLength = 21;
 
-public String getFinalText(String defaultText){
+    public void getFinalText(String s) {
 
-    if (finalText.length() < maxFinalTextLength) {
-        if (i < 4) {
-            int indexOfSpace = defaultText.indexOf(" ");
-            finalText = finalText + defaultText.substring(0, indexOfSpace);
-            defaultText = defaultText.substring(indexOfSpace);
+        for (int i = 0; i < 4; i++) {
 
-            System.out.println(finalText);
-            System.out.println(defaultText);
+            if (textLine.length() < maxLineLength) {
+                s = defaultText;
+                int indexOfSpace = s.indexOf(" ");
+                textLine = textLine + " " + s.substring(0, indexOfSpace);
+                defaultText = s.substring(indexOfSpace);
+                System.out.println(defaultText);
+
+            } else {
+                System.out.println("*-*-*-*-*-*-*-*-*-*");
+            }
+            /*System.out.println(textLine);
+            System.out.println(s);
+            System.out.println(textLine.length());*/
         }
-    }i++;
 
-    return finalText;
-}
-
-    public static void main(String[] args) {
+    }
+    public static void main (String[]args){
         TextConverter textConverter = new TextConverter();
         textConverter.getFinalText(defaultText);
     }
-
 }

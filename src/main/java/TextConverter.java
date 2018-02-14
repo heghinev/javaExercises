@@ -10,32 +10,36 @@ public class TextConverter {
 
 
     static String textLine = "";
-    int maxLineLength = 21;
-    int lineCount = 0;
-    //int j = 0;
-    public int i;
+    static int maxLineLength = 21;
+    static int lineCount = 0;
+    static int wordCount = 0;
 
-    public void getFinalText(String defaultText) {
+    public static String getFinalText(String defaultText) {
         if(lineCount < 4) {
-
             if (textLine.length() < maxLineLength) {
-                for (i = 0; i < 4; i++) {
+                if (wordCount < 4) {
                     int indexOfSpace = defaultText.indexOf(" ");
                     textLine = textLine + " " + defaultText.substring(0, indexOfSpace);
                     defaultText = defaultText.substring(indexOfSpace + 1);
+                    wordCount++;
 
-                    //System.out.println(textLine.length());
-                    //System.out.println(defaultText);
-                }
-                String newLine = System.getProperty("line.separator");
-                //System.out.println(textLine + newLine);
-                System.out.println(textLine + newLine + "^^^^^^^^^");
+                }System.out.println(textLine);
+                textLine = "";
+                /*else{
+                    wordCount = 0;
+                    System.out.println(textLine + " \n");
+                }*/
             }lineCount++;
-        }else {
-           System.out.println("*-*-*-*-*-*-*-*-*-*");
-        }
 
+        }else {
+            System.out.println(textLine);
+            System.out.println("*-*-*-*-*-*-*-*-*-*");
+            lineCount = 0;
+        }
+        return textLine;
     }
+
+
     public static void main (String[]args){
         TextConverter textConverter = new TextConverter();
         textConverter.getFinalText(defaultText);

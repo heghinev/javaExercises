@@ -10,30 +10,28 @@ public class TextConverter {
 
 
     static String textLine = "";
-    //static int maxLineLength = 21;
     static int lineCount = 0;
-    //static int wordCount = 0;
+    static int maxLineLength = 21;
 
     public static String getFinalText(String defaultText) {
-        if(lineCount < 4) {
-            for (int maxLineLength = 21; textLine.length() < maxLineLength; lineCount++) {
+        while(lineCount < 4) {
+            lineCount++;
+            if (textLine.length() < maxLineLength) {
                 for (int wordCount = 0; wordCount < 4; wordCount++){
                     int indexOfSpace = defaultText.indexOf(" ");
                     textLine = textLine + " " + defaultText.substring(0, indexOfSpace);
-                    System.out.println(indexOfSpace);
                     defaultText = defaultText.substring(indexOfSpace + 1);
-                }System.out.println(textLine);
+                }
+                System.out.println(textLine);
                 textLine = "";
-                /*else{
-                    wordCount = 0;
-                    System.out.println(textLine + " \n");
-                }*/
+            }else{
+                System.out.println(textLine);
+                textLine = "";
             }
-
-        }else {
-            //System.out.println(textLine);
-            System.out.println("*-*-*-*-*-*-*-*-*-*");
-            lineCount = 0;
+            if(lineCount == 4){
+                lineCount = 0;
+                System.out.println("*-*-*-*-*-*-*-*-*-*");
+            }
         }
         return textLine;
     }
@@ -44,3 +42,10 @@ public class TextConverter {
         textConverter.getFinalText(defaultText);
     }
 }
+
+/*try {
+                        textLine = textLine + " " + defaultText.substring(0, indexOfSpace);
+                    }catch (StringIndexOutOfBoundsException e){
+                        textLine = textLine + " " + defaultText;
+                    }*/
+

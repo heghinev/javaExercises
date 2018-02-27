@@ -16,7 +16,7 @@ public class Factorial {
              ) {
             factorial = factorial * listValue;
             System.out.println("Value is " + listValue);
-            System.out.println("Fctorial value is " +factorial);
+            System.out.println("Factorial value is " +factorial);
         }
         return factorial;
     }

@@ -1,19 +1,16 @@
 public class Factorial_Recursive {
-    public static int randomNumber = 5;
-    public static int factorial = 0;
-    public static int finalSum = 1;
-
-    public static void getFactorial(){
-        factorial++;
-        if(factorial <= randomNumber){
-            finalSum = finalSum * factorial;
-            //System.out.println(finalSum);
-            getFactorial();
+        public static int getFactorial(int randomNumber){
+        if(randomNumber == 1) {
+            return randomNumber;
+        } else{
+            return randomNumber * getFactorial(randomNumber-1);
         }
+
     }
 
     public static void main(String[] args) {
-        getFactorial();
-        System.out.println(finalSum);
+        System.out.println(getFactorial(5));
     }
+
+
 }
